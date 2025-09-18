@@ -31,16 +31,27 @@ body {
     grid-row: 1;
 }
 
-.header img {
+.header .signIn {
     max-width: 50px;
     top: 0;
     margin: auto;
     position: grid;
     grid-column: 2;
     grid-row: 1;
+    background-color: rgb(150, 150, 200);
+    color: black;
+    border-style: hidden;
+    border-radius: 3px;
 }
 
+.signIn:hover{
+    transform: scale(1.2);
+    transition: 0.5s ease-in-out;
+}
 
+.signIn > a {
+    color: black;
+}
 
 .nav {
     height: 50px;
