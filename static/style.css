@@ -1,0 +1,97 @@
+body {
+    background-color: rgb(150, 200, 200);
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    padding: 30px;
+    margin: auto;
+    background-color: rgb(175, 200, 200);
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    grid-template-rows: 20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-color: teal;
+    border-style: solid;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+}
+
+.header h1.title {
+    font-size: 20px;
+    font-display: swap;
+    top: 0;
+    margin: auto;
+    position: grid;
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.header img {
+    max-width: 50px;
+    top: 0;
+    margin: auto;
+    position: grid;
+    grid-column: 2;
+    grid-row: 1;
+}
+
+
+
+.nav {
+    height: 50px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    border-top-width: 2px;
+    border-top-style: solid;
+    background-color: rgb(175, 200, 200);
+}
+
+.nav ul {
+    text-decoration: none;
+    text-emphasis: none;
+    text-align: center;
+    align-content: center;
+    list-style-type: none;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 1fr;
+    margin-bottom: 5px;
+}
+
+.nav a{
+    max-width: 75px;
+    bottom: 5px;
+}
+
+.nav img {
+    max-width: 20px;
+}
+
+.nav img:hover {
+    transform: scale(1.2);
+    transition: all;
+}
+
+.nav li:hover {
+    transform: scale(1.1);
+    transition: 0.25s ease-in-out;
+}
+
+.nav .active {
+    border-radius: 10px;
+    padding: 15px;
+    padding-top: 25px;
+    background-color: rgb(150, 150, 200);
+    width: 75%;
+    margin: 0 auto;
+    top: 0;
+    border: solid black;
+    border-width: 2px;
+}

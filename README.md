@@ -1,2 +1,2 @@
-# messenger
-a web messaging service
+# ppatsahw
+a web messaging service based on whatsapp
