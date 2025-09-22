@@ -8,6 +8,7 @@ const db = new sqlite.Database('./backend/db.sqlite', (err) => {
         db.run(`CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE,
+            email TEXT UNIQUE,
             password TEXT
         )`, (err) => {
             if (err) {
