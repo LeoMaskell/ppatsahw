@@ -9,14 +9,38 @@
 <body>
     <div class="header">
         <h1 class="title">sign in</h1>
+        <p>dont have an account yet?</p> 
+        <button><a href="/signUp.html">sign up</a></button>
     </div>
 
-    <div class="signForm">
-        <form action="">
-            <input type="email" placeholder="email adress">
-            <input type="text" placeholder="password">
-            <button type="submit">submit</button>
+    <div class="signForm" id="signin">
+        <form>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button type="submit" id="sign-in-btn">Sign In</button>
         </form>
     </div>
+
+
+    <script>
+        document.getElementById("sign-in-btn").addEventListener("click", async () => {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            try {
+                const response = await fetch("/signIn", {  // ✅ relative path
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const result = await response.json();
+                console.log(result);
+                alert(result.message);
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        });
+    </script>
 </body>
 </html>

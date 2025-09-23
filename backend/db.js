@@ -1,5 +1,6 @@
 const sqlite = require('sqlite3');
 
+
 const db = new sqlite.Database('./backend/db.sqlite', (err) => {
     if (err) {
         console.error('Error opening database', err);
