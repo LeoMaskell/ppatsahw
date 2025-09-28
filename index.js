@@ -6,6 +6,7 @@ const db = require('./backend/db.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('hidden'));
 
 // API routes
 app.post('/api/signUp', (req, res) => {
@@ -59,7 +60,7 @@ app.get('/signUp.html', (req, res) => {
 
 
 
-// hidden files
+// static hidden files
 app.get('/style.css', (req, res) => {
     res.sendFile(__dirname + '/hidden/style.css');
 });
@@ -68,6 +69,9 @@ app.get('/frontend.js', (req, res) => {
     res.sendFile(__dirname + '/hidden/frontend.js');
 });
 
+app.get('/msgStyle.css', (req, res) => {
+    res.sendFile(__dirname + '/hidden/msgStyle.css');
+});
 
 
 
