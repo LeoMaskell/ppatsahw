@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <title>ppasta - sign in</title>
 </head>
+
 <body>
     <div class="header">
         <h1 class="title">sign in</h1>
@@ -14,33 +15,14 @@
     </div>
 
     <div class="signForm" id="signin">
-        <form>
+        <form action="/home.html">
             <input type="text" id="username" placeholder="Username">
             <input type="password" id="password" placeholder="Password">
+            <br>
             <button type="submit" id="sign-in-btn">Sign In</button>
         </form>
     </div>
 
-
-    <script>
-        document.getElementById("sign-in-btn").addEventListener("click", async () => {
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            try {
-                const response = await fetch("/signIn", {  // ✅ relative path
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ username, password })
-                });
-
-                const result = await response.json();
-                console.log(result);
-                alert(result.message);
-            } catch (error) {
-                console.error("Error:", error);
-            }
-        });
-    </script>
+    <script src="/frontend.js"></script>
 </body>
 </html>

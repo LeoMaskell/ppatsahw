@@ -26,11 +26,13 @@ app.post('/api/signIn', (req, res) => {
     const { username, password } = req.body;
     const query = `SELECT * FROM users WHERE username = ? AND password = ?`;
     db.get(query, [username, password], (err, row) => {
+        console.log('the thing has started');
         if (err) {
             console.error('Error during sign in', err);
             res.status(500).json({ success: false, message: 'Error during sign in' });
         } else if (row) {
             res.json({ success: true, userId: row.id });
+            console.log('the thing has worked');
         } else {
             res.status(401).json({ success: false, message: 'Invalid credentials' });
         }
@@ -61,6 +63,10 @@ app.get('/signUp.html', (req, res) => {
 // static files
 app.get('/style.css', (req, res) => {
     res.sendFile(__dirname + '/static/style.css');
+});
+
+app.get('/frontend.js', (req, res) => {
+    res.sendFile(__dirname + '/static/frontend.js');
 });
 
 
