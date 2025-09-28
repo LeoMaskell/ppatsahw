@@ -10,14 +10,17 @@ app.use(express.static('hidden'));
 
 // API routes
 app.post('/api/signUp', (req, res) => {
+    console.log('user attempted to sign up');
     const { email, username, password } = req.body;
-    const query = `INSERT INTO users (username, email, password) VALUES (?, ?)`;
-    db.run(query, [email, username, password], function(err) {
+    const query = `INSERT INTO users (username, email, password) VALUES (?, ?, ?)`;
+    db.run(query, [username, email, password], function(err) {
         if (err) {
             console.error('Error during sign up', err);
             res.status(500).json({ success: false, message: 'Error during sign up' });
+            console.log('signup failed');
         } else {
             res.json({ success: true, userId: this.lastID });
+            console.log('signup worked');
         }
     });
 });
@@ -25,15 +28,17 @@ app.post('/api/signUp', (req, res) => {
 app.post('/api/signIn', (req, res) => {
     const { username, password } = req.body;
     const query = `SELECT * FROM users WHERE username = ? AND password = ?`;
+    console.log('user attempted to sign in');
     db.get(query, [username, password], (err, row) => {
         if (err) {
             console.error('Error during sign in', err);
             res.status(500).json({ success: false, message: 'Error during sign in' });
+            console.log('there was an error');
         } else if (row) {
             res.json({ success: true, userId: row.id });
-            console.log('hello');
-//        } else {
-//            res.status(401).json({ success: false, message: 'Invalid credentials' });
+            console.log('user signed in');
+        } else {
+            res.status(401).json({ success: false, message: 'Invalid credentials' });
         }
     });
 });

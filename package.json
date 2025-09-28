@@ -4,13 +4,20 @@
   "description": "a web messaging service",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "Leo Maskell",
   "license": "MIT",
   "dependencies": {
     "express": "^5.1.0",
-    "sqlite3": "^5.1.7"
+    "serve": "^14.2.5",
+    "serve-static": "^2.2.0",
+    "sqlite3": "^5.1.7",
+    "static": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

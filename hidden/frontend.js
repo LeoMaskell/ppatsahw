@@ -1,4 +1,5 @@
-document.getElementById("sign-in-btn").addEventListener("click", async () => {
+document.getElementById("sign-in-btn").addEventListener("click", async (e) => {
+    e.preventDefault();
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
@@ -18,7 +19,8 @@ document.getElementById("sign-in-btn").addEventListener("click", async () => {
 });
 
 
-document.getElementById("sign-up-btn").addEventListener("click", async () => {
+document.getElementById("sign-up-btn").addEventListener("click", async (e) => {
+    e.preventDefault();
     const email = document.getElementById("UpEmail").value;
     const username = document.getElementById("UpUsername").value;
     const password = document.getElementById("UpPassword").value;
