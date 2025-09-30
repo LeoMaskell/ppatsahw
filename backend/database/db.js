@@ -1,11 +1,11 @@
-const sqlite = require('sqlite3');
+const sqlite = require("sqlite3");
 
 
-const db = new sqlite.Database('./backend/database/db.sqlite', (err) => {
+const db = new sqlite.Database("./backend/database/db.sqlite", (err) => {
     if (err) {
-        console.error('Error opening database', err);
+        console.error("Error opening database", err);
     } else {
-        console.log('Database opened successfully');
+        console.log("Database opened successfully");
         db.run(`CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             username TEXT UNIQUE,
@@ -13,9 +13,9 @@ const db = new sqlite.Database('./backend/database/db.sqlite', (err) => {
             password TEXT
         )`, (err) => {
             if (err) {
-                console.error('Error creating users table', err);
+                console.error("Error creating users table", err);
             } else {
-                console.log('Users table ensured');
+                console.log("Users table ensured");
             }
         });
     }
