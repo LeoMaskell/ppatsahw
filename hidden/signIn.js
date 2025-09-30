@@ -3,6 +3,8 @@ document.getElementById("sign-in-btn").addEventListener("click", async (e) => {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
+    let signInQ = false;
+
     try {
         let response = await fetch("/api/signIn", {
             method: "POST",
@@ -12,8 +14,15 @@ document.getElementById("sign-in-btn").addEventListener("click", async (e) => {
 
         let result = await response.json();
         console.log(result);
-        alert(result.message);
+
+        if (result.success) {
+            window.location.href = '/home.html';
+        } else {
+            alert(result.message);
+        }
     } catch (error) {
         console.error("Error:", error);
-    }
+    };
+
+    signInQ = true;
 });
